@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: virtual-wallet-service
+  config:
+    import: optional:configserver:http://config-service:9001
+cache:
+  enabled: true

@@ -1,0 +1,33 @@
+server:
+  port: 8083
+security:
+  basic:
+    enable: false
+management:
+  security:
+    enabled: false
+spring:
+  cloud:
+    config:
+      enabled: true
+  data:
+    mongodb:
+      uri: mongodb://db-mongo:27017/bdproyecto1
+      #host: localhost
+      #port: 27017
+      #database: bdproyecto1
+  kafka:
+    template:
+        default-topic: virtual-wallet-events
+    producer:
+        bootstrap-servers: localhost:9092, localhost:9093, localhost:9094
+        key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    admin:
+      properties:
+        bootstrap.servers: localhost:9092, localhost:9093, localhost:9094
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://service-eureka-server:8761/eureka/

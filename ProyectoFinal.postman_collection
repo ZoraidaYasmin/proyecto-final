@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "9297d7cf-dbce-4be4-8244-42d9f0939c8b",
+		"name": "Proyecto4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2295555"
+	},
+	"item": [
+		{
+			"name": "demo-taza",
+			"item": [
+				{
+					"name": "createBc",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": \"\",\r\n    \"montoSoles\": 1000,\r\n    \"montoBootCoin\": 0,\r\n    \"tazaCambio\": 3.92\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9016/exchange/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9016",
+							"path": [
+								"exchange",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "walletBootCoin - service",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroDocumento\": \"152462156\",\r\n\t\"celular\": \"77879845\",\r\n\t\"correoElectronico\": \"find@gmail.com\",\r\n\t\"montoDeBcTotal\": 1000.0,\r\n\t\"customerId\": \"62d83010cf0fbc364e7371ae\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/walletBc/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"walletBc",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "final-buyBootCoin",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerIdEmisor\": \"62d83010cf0fbc364e7371ae\",\r\n    \"monto\": 1000,\r\n    \"modoDePago\": \"CUENTA BANCARIA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9015/buyBootCoin/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9015",
+							"path": [
+								"buyBootCoin",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "venderSolesToBootCoin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9015/buyBootCoin/venderBc/62e9bfe9ddff80221052fe1d/62deb74859036d276e3d0435",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9015",
+							"path": [
+								"buyBootCoin",
+								"venderBc",
+								"62e9bfe9ddff80221052fe1d",
+								"62deb74859036d276e3d0435"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"walletId\": \"62e9b456d883577798eb62e0\",\r\n    \"customerIdEmisor\": \"62d83010cf0fbc364e7371ae\",\r\n    \"customerIdReceptor\": \"62deb74859036d276e3d0435\",\r\n    \"monto\": 1000,\r\n    \"state\": \"Aceptado\",\r\n    \"modoDePago\": \"CUENTA BANCARIA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9015/buyBootCoin/update/62e9bfe9ddff80221052fe1d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9015",
+							"path": [
+								"buyBootCoin",
+								"update",
+								"62e9bfe9ddff80221052fe1d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "saveVirtualWallet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/virtualWallet/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"virtualWallet",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllVirtualWallet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/virtualWallet/findAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"virtualWallet",
+						"findAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createVirtualWallet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\": \"45654565\",\r\n    \"operation\": \"pay\",\r\n    \"amount\": 120.0,\r\n    \"cardNumberEmisor\": null,\r\n    \"cardNumberReceptor\": null,\r\n    \"virtualWalletId\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/virtualWallet/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"virtualWallet",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByIdVirtualWallet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}

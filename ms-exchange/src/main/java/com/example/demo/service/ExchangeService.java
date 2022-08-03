@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Exchange;
+import com.example.demo.entity.ExchangeEvent;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -15,5 +16,7 @@ public interface ExchangeService {
     Mono<Exchange> update(Exchange c, String id);
 
     Mono<Exchange> delete(String id);
+
+    Mono<ExchangeEvent> convertSolesBootcoin (ExchangeEvent e);
 
 }

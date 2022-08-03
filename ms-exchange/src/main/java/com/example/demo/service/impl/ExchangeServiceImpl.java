@@ -1,7 +1,9 @@
 package com.example.demo.service.impl;
 
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import com.example.demo.entity.ExchangeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +32,7 @@ public class ExchangeServiceImpl implements ExchangeService {
     @Override
     public Mono<Exchange> create(Exchange e) {
         log.info("Method call Create - Exchange");
-        // 1 bc = 3.92 soles
-        e.setMontoBootCoin(e.getMontoSoles().divide(e.getTazaCambio(), 2, RoundingMode.HALF_UP));
+
         return exchangeRepository.save(e);
     }
 
@@ -58,5 +59,14 @@ public class ExchangeServiceImpl implements ExchangeService {
         log.info("Method call Delete - Exchange");
         return exchangeRepository.findById(id).flatMap(
                 x -> exchangeRepository.delete(x).then(Mono.just(new Exchange())));
+    }
+
+    @Override
+    public Mono<ExchangeEvent> convertSolesBootcoin(ExchangeEvent e) {
+        e.setTazaCambio(BigDecimal.valueOf(3.92));
+        // 1 bc = 3.92 soles
+        e.setMontoBootCoin(e.getMontoSoles().divide(e.getTazaCambio(), 2, RoundingMode.HALF_UP));
+        return Mono.just(e);
+
     }
 }

@@ -369,4 +369,8 @@ public class TransacionServiceImpl implements TransactionService {
                                             })));
                         }));
     }
+
+    public Flux<Transaction> findAllByCustomerId(String customerId) {
+        return transactionRepository.findAllByCustomerId(customerId);
+    }
 }

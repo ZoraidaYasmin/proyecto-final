@@ -25,4 +25,6 @@ public interface TransactionService {
     Flux<Transaction> lastTenMovements();
 
     //Flux<Transaction> findAllData(String id);
+
+    Flux<Transaction> findAllByCustomerId(String customerId);
 }

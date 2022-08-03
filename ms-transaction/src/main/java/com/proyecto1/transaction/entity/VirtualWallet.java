@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.proyecto1.transaction.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,18 +9,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 
-@Document(collection = "schema_ex.exchange")
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Exchange {
+public class VirtualWallet {
+	
 
-    @Id
-    private String id;
-    private String customerId;
-    private BigDecimal montoSoles;
-    private BigDecimal montoBootCoin;
-    private BigDecimal tazaCambio;
-    private String bootCoinId;
+	private String id;
+	private String dni;
+	private String cellphone;
+	private String operation;
+	private BigDecimal amount;
+	private String cardNumberEmisor;
+	private String cardNumberReceptor;
+
 }

@@ -65,23 +65,21 @@ public class BuyBootCoinServiceImpl implements BuyBootCoinService {
 
 	@Override
 	public Mono<BuyBootCoin> venderBc(String id, String idReceptor) {
-		
-		
-		
+
 		return buyBootCoinRepository.findById(id)
                 .map( x -> {
-                	
-                	try {
-						buyBcProducer.sendBuyBcBcEvent(x);
-					} catch (JsonProcessingException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
                     x.setWalletId(x.getWalletId());
                     x.setCustomerIdEmisor(x.getCustomerIdEmisor());
-                    x.setAccountIdReceptor(x.getAccountIdReceptor());
+                    x.setAccountIdReceptor(idReceptor);
                     x.setMonto(x.getMonto());
                     x.setState("Aceptado");
+
+                    try {
+                        buyBcProducer.sendBuyBcBcEvent(x);
+                    } catch (JsonProcessingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
                     return x;
                 }).flatMap(buyBootCoinRepository::save);
 	}

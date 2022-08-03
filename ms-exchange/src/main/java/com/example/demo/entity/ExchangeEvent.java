@@ -4,23 +4,22 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 
-@Document(collection = "schema_ex.exchange")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Exchange {
+public class ExchangeEvent {
 
-    @Id
+    private Integer exchangeId;
     private String id;
     private String customerId;
     private BigDecimal montoSoles;
     private BigDecimal montoBootCoin;
     private BigDecimal tazaCambio;
-    private String bootCoinId;
+    private String buyBootCoinId;
+
+    private BuyBootCoin buyBootCoin;
 }
